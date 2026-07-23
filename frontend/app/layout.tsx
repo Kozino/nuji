@@ -1,26 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Zilla_Slab } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const zillaSlab = Zilla_Slab({ subsets: ["latin"], weight: ["500", "700"], variable: "--font-zilla" });
 
 export const metadata: Metadata = {
-  title: "nuji - Teach AI to speak your language",
-  description: "Not textbook Igbo. Not formal Yoruba. The way you actually talk. Every word you contribute helps build AI for 200M+ Nigerians.",
+  title: "Nuji - Teach AI to speak your language",
+  description: "A free, open platform for community-led data creation. Contribute your voice to build AI for 200M+ Nigerians.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={`${inter.variable} ${zillaSlab.variable}`}>
+      <body className="font-sans bg-slate-50 text-slate-900 antialiased">
         <LanguageProvider>
           <Nav />
-          <main className="min-h-screen bg-white font-sans text-slate-900 antialiased">
-            {children}
-          </main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </LanguageProvider>
       </body>
