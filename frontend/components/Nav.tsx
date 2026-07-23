@@ -16,16 +16,16 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2 font-bold text-slate-900">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-violet-600 text-white">
+        <Link href="/" className="flex items-center gap-2 font-zilla text-xl font-bold text-slate-900">
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-purple-600 text-white">
             <Mic className="h-4 w-4" />
           </span>
           nuji
         </Link>
         
         <div className="hidden items-center gap-8 md:flex">
-          <Link href="/contribute" className="text-sm font-medium text-slate-600 hover:text-violet-700">Contribute</Link>
-          <Link href="/leaderboard" className="text-sm font-medium text-slate-600 hover:text-violet-700">Leaderboard</Link>
+          <Link href="/contribute" className="text-sm font-medium text-slate-600 hover:text-purple-700">Contribute</Link>
+          <Link href="/leaderboard" className="text-sm font-medium text-slate-600 hover:text-purple-700">Leaderboard</Link>
         </div>
 
         <div className="flex items-center gap-2 rounded-lg border border-slate-200 p-1">
