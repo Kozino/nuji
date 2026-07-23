@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Contribution {
+  id        String   @id @default(uuid())
+  language  String   // ig, yo, ha, pi
+  state     String   // e.g., Lagos, Abuja FCT
+  type      String   // "speak" or "type"
+  points    Int      @default(10)
+  createdAt DateTime @default(now())
+}
