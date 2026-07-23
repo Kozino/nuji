@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Mic } from "lucide-react";
+import { Mic, Globe2 } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 
 const LANGUAGES = [
@@ -14,32 +14,32 @@ export default function Nav() {
   const { selectedLang, setSelectedLang } = useLanguage();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2 font-bold text-slate-900">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-green-600 to-emerald-500 text-white">
-            <Mic className="h-5 w-5" />
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-violet-600 text-white">
+            <Mic className="h-4 w-4" />
           </span>
           nuji
         </Link>
         
-        <div className="hidden items-center gap-6 md:flex">
-          <Link href="/contribute" className="text-sm font-medium text-slate-600 hover:text-slate-900">Contribute</Link>
-          <Link href="/leaderboard" className="text-sm font-medium text-slate-600 hover:text-slate-900">Leaderboard</Link>
+        <div className="hidden items-center gap-8 md:flex">
+          <Link href="/contribute" className="text-sm font-medium text-slate-600 hover:text-violet-700">Contribute</Link>
+          <Link href="/leaderboard" className="text-sm font-medium text-slate-600 hover:text-violet-700">Leaderboard</Link>
         </div>
 
-        <div className="flex items-center gap-2">
-          {LANGUAGES.map((l) => (
-            <button
-              key={l.code}
-              onClick={() => setSelectedLang(l.code)}
-              className={`rounded-lg px-3 py-1.5 text-sm font-medium transition ${
-                selectedLang === l.code ? "bg-slate-900 text-white" : "text-slate-600 hover:bg-slate-100"
-              }`}
-            >
-              {l.name}
-            </button>
-          ))}
+        <div className="flex items-center gap-2 rounded-lg border border-slate-200 p-1">
+          <Globe2 className="h-4 w-4 text-slate-400" />
+          <select 
+            value={selectedLang || ""}
+            onChange={(e) => setSelectedLang(e.target.value)}
+            className="bg-transparent text-sm font-medium text-slate-700 focus:outline-none"
+          >
+            <option value="" disabled>Select Language</option>
+            {LANGUAGES.map((l) => (
+              <option key={l.code} value={l.code}>{l.name}</option>
+            ))}
+          </select>
         </div>
       </nav>
     </header>
