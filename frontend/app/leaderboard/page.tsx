@@ -14,48 +14,47 @@ export default function LeaderboardPage() {
           { rank: 1, state: "Lagos", points: 2840, contributors: 412 },
           { rank: 2, state: "Abuja FCT", points: 2105, contributors: 287 },
           { rank: 3, state: "Kano", points: 1872, contributors: 341 },
-          { rank: 4, state: "Rivers", points: 1540, contributors: 198 },
         ]);
       });
   }, []);
 
   return (
-    <section className="min-h-[80vh] bg-slate-900 text-white">
-      <div className="mx-auto max-w-4xl px-6 py-20">
+    <div className="min-h-[80vh] bg-slate-50">
+      <div className="mx-auto max-w-3xl px-6 py-16">
         <div className="text-center">
-          <Trophy className="mx-auto h-8 w-8 text-amber-400" />
-          <h1 className="mt-3 text-3xl font-bold">Live Leaderboard</h1>
-          <p className="mt-2 text-slate-300">Represent your state. Climb the ranks.</p>
+          <Trophy className="mx-auto h-10 w-10 text-amber-500" />
+          <h1 className="mt-4 text-3xl font-bold text-slate-900">Live Leaderboard</h1>
+          <p className="mt-2 text-slate-500">Represent your state. Climb the ranks.</p>
         </div>
         
-        <div className="mt-10 overflow-hidden rounded-2xl border border-white/10">
+        <div className="mt-12 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           {leaders.length === 0 && (
-            <div className="bg-white/5 px-6 py-8 text-center text-slate-400">Loading leaderboard...</div>
+            <div className="px-6 py-12 text-center text-slate-400">Loading leaderboard...</div>
           )}
           {leaders.map((row, i) => (
-            <div key={row.state} className={`flex items-center justify-between px-6 py-4 ${i % 2 === 0 ? "bg-white/5" : "bg-white/0"}`}>
+            <div key={row.state} className={`flex items-center justify-between px-6 py-5 ${i % 2 === 0 ? "bg-white" : "bg-slate-50"}`}>
               <div className="flex items-center gap-4">
                 <span className={`grid h-8 w-8 place-items-center rounded-full text-sm font-bold ${
                   row.rank === 1 ? "bg-amber-400 text-slate-900" :
                   row.rank === 2 ? "bg-slate-300 text-slate-900" :
                   row.rank === 3 ? "bg-amber-700 text-white" :
-                  "bg-white/10 text-white"
+                  "bg-slate-100 text-slate-500"
                 }`}>
                   {row.rank}
                 </span>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-slate-400" />
-                  <span className="font-semibold">{row.state}</span>
+                  <span className="font-semibold text-slate-900">{row.state}</span>
                 </div>
               </div>
-              <div className="flex items-center gap-6 text-sm">
-                <span className="text-slate-400">{row.contributors} contributors</span>
-                <span className="font-bold text-amber-400">{row.points.toLocaleString()} pts</span>
+              <div className="flex items-center gap-8 text-sm">
+                <span className="text-slate-500">{row.contributors} clips</span>
+                <span className="w-20 text-right font-bold text-violet-600">{row.points.toLocaleString()} pts</span>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
