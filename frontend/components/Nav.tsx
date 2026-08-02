@@ -18,12 +18,14 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
-        <Link href="/" className="flex shrink-0 items-center">
-          <Image src="/brand/nuji-logo-transparent.png" alt="Nuji" width={124} height={112} className="h-11 w-auto" priority />
-        </Link>
+    <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2.5">
+  <Link href="/" className="flex shrink-0 items-center">
+    <Image src="/brand/nuji-logo-compact.png" alt="Nuji" width={680} height={780} className="h-16 w-auto sm:h-[4.5rem]" priority />
+  </Link>
 
         <div className="hidden items-center gap-7 md:flex">
+           <Link href="/admin/login" className="text-sm font-medium text-ink/70 transition hover:text-forest">
+            Admin
           <Link href="/about" className="text-sm font-medium text-ink/70 transition hover:text-forest">
             About
           </Link>
