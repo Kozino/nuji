@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Github } from "lucide-react";
-import { SoundMark } from "./SoundMark";
 
 export default function Footer() {
   return (
@@ -8,9 +8,8 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Link href="/" className="flex items-center gap-2.5 font-zilla text-xl font-bold text-paper">
-              <SoundMark className="h-8 w-8" />
-              nuji
+            <Link href="/" className="inline-flex items-center">
+              <Image src="/brand/nuji-logo-transparent.png" alt="Nuji" width={124} height={112} className="h-12 w-auto" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/55">
               An open, community-led dataset of everyday Nigerian speech &mdash; built by the people who actually speak it.
@@ -20,6 +19,7 @@ export default function Footer() {
           <div>
             <p className="font-plex text-xs font-semibold uppercase tracking-wider text-gold">Platform</p>
             <ul className="mt-4 space-y-2.5 text-sm">
+              <li><Link href="/about" className="hover:text-paper">About Nuji</Link></li>
               <li><Link href="/contribute" className="hover:text-paper">Contribute your voice</Link></li>
               <li><Link href="/leaderboard" className="hover:text-paper">State leaderboard</Link></li>
             </ul>
@@ -55,7 +55,10 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-paper/10 pt-6 text-xs text-paper/40 sm:flex-row">
           <span>Built for the people. Powered by their voice.</span>
-          <span>🇳🇬 Made for 200M+ Nigerian speakers</span>
+          <div className="flex items-center gap-5">
+            <span>🇳🇬 Made for 200M+ Nigerian speakers</span>
+            <Link href="/admin/login" className="hover:text-paper/70">Admin</Link>
+          </div>
         </div>
       </div>
     </footer>
