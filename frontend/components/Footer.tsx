@@ -8,9 +8,9 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Link href="/" className="inline-flex items-center">
-              <Image src="/brand/nuji-logo-transparent.png" alt="Nuji" width={124} height={112} className="h-12 w-auto" />
-            </Link>
+           <Link href="/" className="inline-flex items-center">
+  <Image src="/brand/nuji-logo-compact.png" alt="Nuji" width={680} height={780} className="h-20 w-auto" />
+</Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/55">
               An open, community-led dataset of everyday Nigerian speech &mdash; built by the people who actually speak it.
             </p>
