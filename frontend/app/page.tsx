@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { ArrowRight, Mic, Type as TypeIcon, Users, AudioLines, Globe2 } from "lucide-react";
 import { SoundMark, WaveformDivider } from "@/components/SoundMark";
+import { NigeriaMap } from "@/components/NigeriaMap";
 import { LANGUAGES, PROMPTS } from "@/lib/languages";
 
 const STATS = [
@@ -116,6 +117,23 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Nigeria language map */}
+      <section className="border-b border-line bg-white py-24">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <p className="font-plex text-xs font-semibold uppercase tracking-wider text-forest">Where the languages live</p>
+          <h2 className="font-zilla mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+            One country, four major languages
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-ink/55">
+            Each language is rooted in its own region &mdash; but Pidgin threads through every one of them, spoken
+            and understood from Lagos to Kano to Enugu.
+          </p>
+          <div className="mt-14">
+            <NigeriaMap />
+          </div>
+        </div>
+      </section>
+
       {/* Language showcase */}
       <section className="border-b border-line bg-paper py-24">
         <div className="mx-auto max-w-6xl px-6">
@@ -143,6 +161,49 @@ export default function LandingPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Culture gallery */}
+      <section className="border-b border-line bg-white py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="font-plex text-xs font-semibold uppercase tracking-wider text-clay">Rooted in culture</p>
+            <h2 className="font-zilla mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+              Language is culture, carried in the voice
+            </h2>
+            <p className="mt-4 text-ink/60">
+              Agbada. Aso oke. Babban riga. Isiagu. Every language on Nuji comes wrapped in a culture that&rsquo;s
+              just as vivid as the words themselves.
+            </p>
+          </div>
+          <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <img
+              src="https://images.unsplash.com/photo-1663043994777-7ed4b4e6cba3?w=600&auto=format&fit=crop&q=80"
+              alt="Men in traditional Nigerian agbada attire"
+              className="col-span-2 row-span-2 h-full min-h-[20rem] w-full rounded-2xl object-cover"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1663044022559-9a0e0215abea?w=500&auto=format&fit=crop&q=80"
+              alt="A group in traditional Nigerian dress"
+              className="h-full min-h-[9.5rem] w-full rounded-2xl object-cover"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1531299983330-093763e1d963?w=500&auto=format&fit=crop&q=80"
+              alt="Portrait study in Lagos, Nigeria"
+              className="h-full min-h-[9.5rem] w-full rounded-2xl object-cover"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1663044022648-08bf87cfdc05?w=500&auto=format&fit=crop&q=80"
+              alt="Traditional Nigerian robe detail"
+              className="h-full min-h-[9.5rem] w-full rounded-2xl object-cover"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1734255026082-82fdc81991f0?w=500&auto=format&fit=crop&q=80"
+              alt="A vibrant Nigerian market scene"
+              className="h-full min-h-[9.5rem] w-full rounded-2xl object-cover"
+            />
           </div>
         </div>
       </section>
