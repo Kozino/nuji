@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
-import { SoundMark } from "./SoundMark";
 
 const LANGUAGES = [
   { code: "ig", name: "Igbo" },
@@ -18,13 +18,15 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3.5">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5 font-zilla text-xl font-bold text-ink">
-          <SoundMark className="h-8 w-8" />
-          nuji
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+        <Link href="/" className="flex shrink-0 items-center">
+          <Image src="/brand/nuji-logo-transparent.png" alt="Nuji" width={124} height={112} className="h-11 w-auto" priority />
         </Link>
 
         <div className="hidden items-center gap-7 md:flex">
+          <Link href="/about" className="text-sm font-medium text-ink/70 transition hover:text-forest">
+            About
+          </Link>
           <Link href="/contribute" className="text-sm font-medium text-ink/70 transition hover:text-forest">
             Contribute
           </Link>
@@ -61,6 +63,9 @@ export default function Nav() {
       {open && (
         <div className="border-t border-line bg-paper px-6 py-5 md:hidden">
           <div className="flex flex-col gap-3">
+            <Link href="/about" onClick={() => setOpen(false)} className="text-sm font-semibold text-ink">
+              About
+            </Link>
             <Link href="/contribute" onClick={() => setOpen(false)} className="text-sm font-semibold text-ink">
               Contribute
             </Link>
