@@ -26,6 +26,7 @@ export default function Nav() {
         <div className="hidden items-center gap-7 md:flex">
            <Link href="/admin/login" className="text-sm font-medium text-ink/70 transition hover:text-forest">
             Admin
+              </Link>
           <Link href="/about" className="text-sm font-medium text-ink/70 transition hover:text-forest">
             About
           </Link>
