@@ -19,7 +19,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden border-b border-line">
         <div className="adire-pattern absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-3xl px-6 py-20 text-center">
-          <Image src="/brand/nuji-logo-transparent.png" alt="Nuji" width={124} height={112} className="mx-auto h-16 w-auto" />
+          <Image src="/brand/nuji-logo-full.png" alt="Nuji" width={680} height={900} className="mx-auto h-32 w-auto sm:h-40" />
           <h1 className="font-zilla mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-ink sm:text-5xl">
             Technology that speaks your language
           </h1>
