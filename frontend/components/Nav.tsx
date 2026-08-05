@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
@@ -15,9 +15,23 @@ const LANGUAGES = [
 export default function Nav() {
   const { selectedLang, setSelectedLang } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur-md">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-200 ${
+        scrolled || open
+          ? "border-b border-line bg-paper/95 shadow-[0_1px_8px_rgba(0,0,0,0.06)] backdrop-blur-md"
+          : "border-b border-transparent bg-paper/40 backdrop-blur-sm"
+      }`}
+    >
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2.5">
         <Link href="/" className="flex shrink-0 items-center">
           <Image src="/brand/nuji-logo-compact.png" alt="Nuji" width={680} height={780} className="h-16 w-auto sm:h-[4.5rem]" priority />
@@ -70,6 +84,7 @@ export default function Nav() {
         <button
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
+          aria-expanded={open}
           className="grid h-9 w-9 place-items-center rounded-lg border border-line bg-white text-ink md:hidden"
         >
           {open ? <X className="h-[1.125rem] w-[1.125rem]" /> : <Menu className="h-[1.125rem] w-[1.125rem]" />}
