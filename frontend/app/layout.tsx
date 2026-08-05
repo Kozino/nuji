@@ -18,9 +18,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${inter.variable} ${zillaSlab.variable} ${plexMono.variable}`}>
       <body className="font-sans bg-paper text-ink antialiased">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <LanguageProvider>
           <Nav />
-          <main className="min-h-screen">{children}</main>
+          <main id="main-content" className="min-h-screen pt-[84px] sm:pt-[92px]">{children}</main>
           <Footer />
         </LanguageProvider>
       </body>
