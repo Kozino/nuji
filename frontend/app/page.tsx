@@ -1,15 +1,9 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight, Mic, Type as TypeIcon, Users, AudioLines, Globe2 } from "lucide-react";
+import { ArrowRight, Mic, Headphones, Users, AudioLines, Globe2 } from "lucide-react";
 import { SoundMark, WaveformDivider } from "@/components/SoundMark";
 import { NigeriaMap } from "@/components/NigeriaMap";
 import { LANGUAGES, PROMPTS } from "@/lib/languages";
-
-const STATS = [
-  { icon: Globe2, value: "4", label: "Languages" },
-  { icon: Users, value: "0", label: "Contributors" },
-  { icon: AudioLines, value: "0", suffix: "hrs", label: "Audio recorded" },
-];
 
 export default function LandingPage() {
   return (
@@ -54,17 +48,6 @@ export default function LandingPage() {
               </Link>
             </div>
 
-            <div className="mt-12 flex items-center gap-8 border-t border-line pt-8">
-              {STATS.map((s) => (
-                <div key={s.label}>
-                  <div className="font-plex text-2xl font-semibold text-ink">
-                    {s.value}
-                    <span className="text-gold">{s.suffix || ""}</span>
-                  </div>
-                  <div className="mt-0.5 text-xs font-medium uppercase tracking-wider text-ink/45">{s.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right: visual */}
@@ -100,6 +83,27 @@ export default function LandingPage() {
             <span className="pointer-events-none absolute -right-4 -top-4 h-20 w-20 rounded-full bg-gold/25 blur-2xl" />
             <span className="pointer-events-none absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-forest/15 blur-2xl" />
           </div>
+        </div>
+      </section>
+
+      {/* Stats band */}
+      <section className="border-b border-line bg-ink py-10">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 px-6 sm:grid-cols-4">
+          {[
+            { icon: Globe2, value: "4", label: "Languages" },
+            { icon: Users, value: "0", label: "Contributors" },
+            { icon: AudioLines, value: "0", suffix: "hrs", label: "Voices recorded" },
+            { icon: Mic, value: "0", label: "Clips validated" },
+          ].map((s) => (
+            <div key={s.label} className="text-center">
+              <s.icon className="mx-auto h-5 w-5 text-gold" />
+              <div className="mt-2 font-plex text-3xl font-semibold text-paper">
+                {s.value}
+                <span className="text-gold">{s.suffix || ""}</span>
+              </div>
+              <div className="mt-1 font-plex text-[11px] font-medium uppercase tracking-wider text-paper/45">{s.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -214,7 +218,7 @@ export default function LandingPage() {
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-zilla text-3xl font-bold tracking-tight text-ink sm:text-4xl">Ways to contribute</h2>
             <p className="mt-4 text-lg text-ink/60">
-              Pick whichever fits you. Every clip and every sentence makes the dataset richer.
+              Pick whichever fits you. Every recording, review, and typed sentence makes the dataset richer.
             </p>
           </div>
 
@@ -228,7 +232,8 @@ export default function LandingPage() {
               </span>
               <h3 className="font-zilla mt-4 text-2xl font-bold text-ink">Read sentences aloud</h3>
               <p className="mt-2 flex-1 text-sm leading-6 text-ink/60">
-                Contribute to the most diverse public speech dataset by reading curated prompts in your language.
+                Contribute to the most diverse public speech dataset by reading curated prompts in your language
+                &mdash; or switch to typing if you&rsquo;d rather write your response.
               </p>
               <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-forest">
                 Start speaking <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
@@ -241,21 +246,24 @@ export default function LandingPage() {
             </Link>
 
             <Link
-              href="/contribute"
+              href="/listen"
               className="group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-paper p-8 transition hover:border-gold/60 hover:shadow-xl"
             >
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-gold-light px-3 py-1 text-xs font-semibold text-gold-dark">
-                <TypeIcon className="h-3.5 w-3.5" /> Type
+                <Headphones className="h-3.5 w-3.5" /> Listen
               </span>
-              <h3 className="font-zilla mt-4 text-2xl font-bold text-ink">Answer prompts</h3>
+              <h3 className="font-zilla mt-4 text-2xl font-bold text-ink">Validate other clips</h3>
               <p className="mt-2 flex-1 text-sm leading-6 text-ink/60">
-                Respond to open prompts to build datasets for organic, colloquial contexts. Perfect for code-switching.
+                Listen to recordings from other contributors and confirm they sound natural. Peer review is what
+                keeps the dataset high quality.
               </p>
               <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold-dark">
-                Start typing <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                Start listening <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </span>
-              <div className="pointer-events-none absolute -right-4 -bottom-4 font-plex text-7xl font-bold text-gold/10">
-                Aa
+              <div className="pointer-events-none absolute -right-6 -bottom-6 flex h-24 items-end gap-1 opacity-10">
+                {[0.5, 0.8, 0.4, 0.9, 0.3, 0.7, 0.6].map((h, i) => (
+                  <span key={i} className="w-2.5 rounded-full bg-gold" style={{ height: `${h * 96}px` }} />
+                ))}
               </div>
             </Link>
           </div>
