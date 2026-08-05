@@ -28,6 +28,12 @@ const config: Config = {
           dark: "#93411F",
           light: "#F4E1D4",
         },
+        teal: {
+          DEFAULT: "#1C8C74",
+          dark: "#136354",
+          light: "#DCEFE9",
+        },
+        lagoon: "#12312B",
         line: "#E4DCC8",
       },
       fontFamily: {
