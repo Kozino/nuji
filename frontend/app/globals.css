@@ -70,9 +70,36 @@ a {
   animation: wave-bounce 1.1s ease-in-out infinite;
   transform-origin: center;
 }
-
 @media (prefers-reduced-motion: reduce) {
   .wave-bar { animation: none; }
+}
+
+@keyframes wave-drift {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .wave-layer {
+    animation: wave-drift 80s ease-in-out infinite;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  background: #181C19;
+  color: #F7F3E9;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: top 150ms ease;
+}
+.skip-link:focus {
+  top: 1rem;
 }
 
 .text-gold-gradient {
@@ -83,9 +110,4 @@ a {
   color: #C89A4E;
 }
 
-.admin-bg {
-  background:
-    radial-gradient(circle at 15% 10%, rgba(217,166,46,0.10), transparent 45%),
-    radial-gradient(circle at 85% 90%, rgba(14,107,73,0.14), transparent 45%),
-    #181C19;
-}
+
