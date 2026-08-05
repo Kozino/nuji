@@ -18,40 +18,53 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur-md">
-    <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2.5">
-  <Link href="/" className="flex shrink-0 items-center">
-    <Image src="/brand/nuji-logo-compact.png" alt="Nuji" width={680} height={780} className="h-16 w-auto sm:h-[4.5rem]" priority />
-  </Link>
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2.5">
+        <Link href="/" className="flex shrink-0 items-center">
+          <Image src="/brand/nuji-logo-compact.png" alt="Nuji" width={680} height={780} className="h-16 w-auto sm:h-[4.5rem]" priority />
+        </Link>
 
         <div className="hidden items-center gap-7 md:flex">
-           <Link href="/admin/login" className="text-sm font-medium text-ink/70 transition hover:text-forest">
-            Admin
-              </Link>
           <Link href="/about" className="text-sm font-medium text-ink/70 transition hover:text-forest">
             About
           </Link>
           <Link href="/contribute" className="text-sm font-medium text-ink/70 transition hover:text-forest">
-            Contribute
+            Speak
+          </Link>
+          <Link href="/listen" className="text-sm font-medium text-ink/70 transition hover:text-forest">
+            Listen
           </Link>
           <Link href="/leaderboard" className="text-sm font-medium text-ink/70 transition hover:text-forest">
             Leaderboard
           </Link>
+           <Link href="/admin/login" className="text-sm font-medium text-ink/70 transition hover:text-forest">
+            Admin
+          </Link>
         </div>
 
-        <div className="hidden items-center gap-1 rounded-full border border-line bg-white p-1 shadow-sm md:flex">
-          {LANGUAGES.map((l) => (
-            <button
-              key={l.code}
-              onClick={() => setSelectedLang(l.code)}
-              className={`rounded-full px-3 py-1.5 font-plex text-xs font-medium tracking-wide transition ${
-                selectedLang === l.code
-                  ? "bg-forest text-paper"
-                  : "text-ink/50 hover:bg-forest-light hover:text-forest-dark"
-              }`}
-            >
-              {l.name}
+        <div className="hidden items-center gap-4 lg:flex">
+          <div className="flex items-center gap-1 rounded-full border border-line bg-white p-1 shadow-sm">
+            {LANGUAGES.map((l) => (
+              <button
+                key={l.code}
+                onClick={() => setSelectedLang(l.code)}
+                className={`rounded-full px-3 py-1.5 font-plex text-xs font-medium tracking-wide transition ${
+                  selectedLang === l.code
+                    ? "bg-forest text-paper"
+                    : "text-ink/50 hover:bg-forest-light hover:text-forest-dark"
+                }`}
+              >
+                {l.name}
+              </button>
+            ))}
+          </div>
+          <div className="flex items-center gap-2">
+            <button className="rounded-full px-3.5 py-1.5 text-sm font-semibold text-ink/70 transition hover:text-forest">
+              Log In
             </button>
-          ))}
+            <button className="rounded-full bg-ink px-4 py-1.5 text-sm font-semibold text-paper transition hover:bg-ink/85">
+              Sign Up
+            </button>
+          </div>
         </div>
 
         <button
@@ -70,11 +83,23 @@ export default function Nav() {
               About
             </Link>
             <Link href="/contribute" onClick={() => setOpen(false)} className="text-sm font-semibold text-ink">
-              Contribute
+              Speak
+            </Link>
+            <Link href="/listen" onClick={() => setOpen(false)} className="text-sm font-semibold text-ink">
+              Listen
             </Link>
             <Link href="/leaderboard" onClick={() => setOpen(false)} className="text-sm font-semibold text-ink">
               Leaderboard
             </Link>
+          </div>
+
+          <div className="mt-5 flex gap-2 border-t border-line pt-5">
+            <button className="flex-1 rounded-full border border-line py-2 text-sm font-semibold text-ink/70">
+              Log In
+            </button>
+            <button className="flex-1 rounded-full bg-ink py-2 text-sm font-semibold text-paper">
+              Sign Up
+            </button>
           </div>
           <p className="mt-5 mb-2 font-plex text-[11px] font-semibold uppercase tracking-wider text-ink/40">
             Select language
